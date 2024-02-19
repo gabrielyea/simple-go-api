@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"github.com/gabrielyea/simple-go-api/lib/services"
+	"github/gabrielyea/simple-go-api/api/lib/services"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
