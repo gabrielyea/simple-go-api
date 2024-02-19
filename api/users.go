@@ -1,19 +1,14 @@
-package handlers
+package handler
 
 import (
-	"github/gabrielyea/simple-go-api/api/lib/services"
+	"encoding/json"
+	"github/gabrielyea/simple-go-api/services"
 	"net/http"
-
-	"github.com/gin-gonic/gin"
 )
 
-// @Summary Get users
-// @Description Get all users
-// @Produce  json
-// @Success 200 {object} services.MockUser
-// @Router /users [get]
-// GetUsers returns a list of users
-func GetUsers(c *gin.Context) {
-	user := services.GetUser()
-	c.JSON(http.StatusOK, user)
+// Handler is the exported function that Vercel will invoke
+func Handler(w http.ResponseWriter, r *http.Request) {
+	user := services.GetUser() // Assuming GetUser() is accessible and correctly returns a user object
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(user)
 }

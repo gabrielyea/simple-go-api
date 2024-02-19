@@ -1,16 +1,12 @@
 {
-  "version": 2,
   "routes": [
     {
-      "src": "/api/users",
-      "dest": "/api/users.go",
-      "methods": ["GET"]
-    }
-  ],
-  "builds": [
+      "src": "api/.*",
+      "dest": "/api/users.go"
+    },
     {
-      "src": "/api/users.go",
-      "use": "@now/go"
+      "src": "api/.*",
+      "dest": "/index.go"
     }
   ]
 }
